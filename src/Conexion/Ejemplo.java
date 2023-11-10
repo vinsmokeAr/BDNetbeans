@@ -348,11 +348,11 @@ public class Ejemplo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccione un usuario en la tabla!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /**
+     * boton de actualizar
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        /**
-         * boton de actualizar
-         */
+
         try {
             String sql = "update my506 set nombre='" + txtNombre.getText() + "', matricula='" + txtMatricula.getText() + "', carrera ='" + txtCarrera.getText() + "' where id= '" + id + "'";
             System.out.println(sql);
@@ -371,7 +371,9 @@ public class Ejemplo extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /**
+     * Boton para editar los campos de la tabla
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (seleccionado()) {
             txtNombre.setText("" + tblUsuarios.getValueAt(tblUsuarios.getSelectedRow(), 1));
@@ -395,15 +397,15 @@ public class Ejemplo extends javax.swing.JFrame {
 
         String sql = "INSERT INTO my506 (id, nombre, matricula, carrera) VALUES (?,?,?,?)";
         PreparedStatement sentencia = null;
-        try {            
+        try {
             sentencia = c.prepareStatement(sql);
             sentencia.setInt(1, createID());
-            sentencia.setString (2, txtNombre1.getText());
+            sentencia.setString(2, txtNombre1.getText());
             sentencia.setInt(3, Integer.parseInt(txtMatricula1.getText()));
             sentencia.setString(4, txtCarrera1.getText());
             sentencia.execute();
-            
-        } catch(Exception e) {
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         insertUsers.setVisible(true);
